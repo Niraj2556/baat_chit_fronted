@@ -169,11 +169,13 @@ class VideoCallApp {
     leaveRoom() {
         this.webrtc.cleanup();
         this.socket.disconnect();
-        this.showRatingPopup();
+        // this.showRatingPopup(); // Rating feature commented out
+        this.returnToHome();
     }
 
     handleDisconnect() {
-        this.showRatingPopup();
+        // this.showRatingPopup(); // Rating feature commented out
+        this.returnToHome();
     }
     
     returnToHome() {
@@ -228,7 +230,8 @@ class VideoCallApp {
         
         // If only one person left, end the call
         if (this.participants.length <= 2) {
-            this.showRatingPopup();
+            // this.showRatingPopup(); // Rating feature commented out
+            this.returnToHome();
         }
     }
 
@@ -297,15 +300,19 @@ class VideoCallApp {
         
         // If connection is completely failed, end the call
         if (state === 'failed') {
-            this.showRatingPopup();
+            // this.showRatingPopup(); // Rating feature commented out
+            this.returnToHome();
         }
     }
 
     handleStreamEnded(trackKind) {
         console.log(`${trackKind} track ended`);
-        this.showRatingPopup();
+        // this.showRatingPopup(); // Rating feature commented out
+        this.returnToHome();
     }
 
+    // Rating feature commented out
+    /*
     showRatingPopup() {
         // Prevent multiple popups
         if (document.querySelector('.rating-popup-overlay')) return;
@@ -381,6 +388,7 @@ class VideoCallApp {
             }
         });
     }
+    */
     
 
 
