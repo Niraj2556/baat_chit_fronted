@@ -6,12 +6,16 @@ const getConfig = () => {
     if (isProduction) {
         return {
             BACKEND_URL: 'https://baat-chit-backend-lovat.vercel.app/',
-            ENVIRONMENT: 'production'
+            ENVIRONMENT: 'production',
+            path: '/api/socket',
+            withCredentials: true,
         };
     } else {
         return {
             BACKEND_URL: 'http://localhost:3000',
-            ENVIRONMENT: 'development'
+            ENVIRONMENT: 'development',
+            path: '/api/socket',
+            withCredentials: true,
         };
     }
 };
