@@ -1,3 +1,5 @@
+import { ENV_CONFIG } from './config.js';
+
 class CallHistoryManager {
     constructor() {
         this.checkAuth();
@@ -30,7 +32,7 @@ class CallHistoryManager {
     async loadCallHistory() {
         try {
             const token = localStorage.getItem('token');
-            const response = await fetch('http://localhost:3000/api/auth/call-history', {
+            const response = await fetch(`${ENV_CONFIG.BACKEND_URL}/api/auth/call-history`, {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }

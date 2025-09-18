@@ -1,3 +1,5 @@
+import { ENV_CONFIG } from './config.js';
+
 class AuthManager {
     constructor() {
         this.initializeElements();
@@ -126,7 +128,7 @@ class AuthManager {
         }
 
         try {
-            const response = await fetch('http://localhost:3000/api/auth/login', {
+            const response = await fetch(`${ENV_CONFIG.BACKEND_URL}/api/auth/login`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ username, password })
@@ -180,7 +182,7 @@ class AuthManager {
     // Username availability check removed; rely on /api/auth/register error
 
         try {
-            const response = await fetch('http://localhost:3000/api/auth/register', {
+            const response = await fetch(`${ENV_CONFIG.BACKEND_URL}/api/auth/register`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ username, email, password })
@@ -257,7 +259,7 @@ class AuthManager {
 
                 this.usernameCheckTimeout = setTimeout(async () => {
                     try {
-                        const response = await fetch('http://localhost:3000/api/auth/check-username', {
+                        const response = await fetch(`${ENV_CONFIG.BACKEND_URL}/api/auth/check-username`, {
                             method: 'POST',
                             headers: { 'Content-Type': 'application/json' },
                             body: JSON.stringify({ username })
