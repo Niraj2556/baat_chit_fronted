@@ -5,7 +5,7 @@ const getConfig = () => {
     
     if (isProduction) {
         return {
-            BACKEND_URL: 'https://your-backend-domain.vercel.app', // Replace with your actual backend URL
+            BACKEND_URL: 'https://baat-chit-backend-lovat.vercel.app/',
             ENVIRONMENT: 'production'
         };
     } else {
